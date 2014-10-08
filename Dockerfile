@@ -38,7 +38,7 @@ RUN cd /tmp && \
     wget -nv https://download.elasticsearch.org/kibana/kibana/kibana-$KIBANA_VERSION.tar.gz && \
     tar xvzf kibana-$KIBANA_VERSION.tar.gz && \
     rm -f kibana-$KIBANA_VERSION.tar.gz && \
-    mv /tmp/kibana-$KIBANA_VERSION /usr/share/nginx/html/kibana
+    mv /tmp/kibana-$KIBANA_VERSION /usr/share/nginx/html
 
 # Expose the PostgreSQL port
 EXPOSE 9200 9300 80
