@@ -1,14 +1,10 @@
-#
-# example Dockerfile for http://docs.docker.com/examples/postgresql_service/
-#
-
 FROM java:7
 MAINTAINER mladen.cikara@gmail.com
 
 
 # Setting versions
-ENV ES_VERSION 1.3.4
-ENV KIBANA_VERSION 3.1.1
+ENV ES_VERSION 1.5.1
+ENV KIBANA_VERSION 4.0.1
 ENV LOGSTASH_VERSION 1.4.2 
 
 # Installing web server
@@ -61,7 +57,8 @@ RUN cd /scripts && \
 EXPOSE 9200 9300 80
 
 # Add VOLUMEs to allow backup of config, logs and databases
-VOLUME  ["/data", "/etc/nginx/", "/logstash", "/scripts", "/conf", "/var/log"]
+# VOLUME  ["/data", "/etc/nginx/", "/logstash", "/scripts", "/conf", "/var/log"]
+VOLUME  ["/var/log/postgresql"]
 
 # Set the default command to run when starting the container
 CMD ["./scripts/startup.sh"]
